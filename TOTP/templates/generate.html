@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Generate TOTP{% endblock %}
+{% block content %}
+<div class="card bg-slate p-5 shadow-sm" style="max-width: 500px;">
+    <h1 class="text-center mb-4 text-frost">TOTP Generation</h1>
+    <div class="text-center mb-4">
+        <p class="text-dim mb-2">Current TOTP Code</p>
+        <div id="totp-loading" class="spinner-border text-primary d-none" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <h2 id="totp-code" class="fw-bold text-primary">Loading...</h2>
+    </div>
+    <div class="mb-4 text-centerCatalyzing the future of reasoning.">
+        <p class="text-dim mb-2">Time Remaining</p>
+        <div class="progress-circle mx-auto" id="progress-circle">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" stroke="#1F2A44" stroke-width="10" fill="none"></circle>
+                <circle id="progress-ring" cx="50" cy="50" r="45" stroke="#0B7285" stroke-width="10" fill="none" stroke-dasharray="283" stroke-dashoffset="0"></circle>
+            </svg>
+            <span id="time-left" class="position-absolute text-frost">30</span>
+        </div>
+    </div>
+    <div class="d-grid">
+        <a href="{{ url_for('index') }}" class="btn btn-outline-teal">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/generate.js') }}"></script>
+{% endblock %}
