@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="card bg-slate p-5 shadow-sm" style="max-width: 500px;">
+    <h1 class="text-center mb-4 text-frost">TOTP Management System</h1>
+    <p class="text-center text-dim mb-5">Securely generate and validate Time-Based One-Time Passwords</p>
+    <div class="d-grid gap-3">
+        <a href="{{ url_for('generate') }}" class="btn btn-primary btn-lg">Generate TOTP</a>
+        <a href="{{ url_for('validate') }}" class="btn btn-outline-teal btn-lg">Validate TOTP</a>
+    </div>
+</div>
+{% endblock %}
